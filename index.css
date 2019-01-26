@@ -430,7 +430,7 @@ html {
     .self-image{
         display: block;
         text-align: center;
-        margin: 70px auto 50px auto;
+        margin: 70px auto 0px auto;
     }
     .nav {
         display: none;
