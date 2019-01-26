@@ -1,1 +1,1120 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>My Portfolio</title>
+</head>
+<body>
+
+<div class="main-container">
+    <!--flex container-->
+    <div class="nav">
+            <div class="nav-name-title">
+                <div class="nav-name"> Govind Gupta</div>
+                <div class="nav-title"> Full Stack Developer</div>
+            </div>
+            <div>
+                <a class="nav-ele" href="#about">
+                    <img src="./icons/about.svg" class="nav-ele-img">
+                    <span class="nav-ele-name">About</span>
+                </a>
+                <a class="nav-ele" href="#skills">
+                    <img src="./icons/skills.svg" class="nav-ele-img">
+                    <span class="nav-ele-name">Skills</span>
+                </a>
+                <a class="nav-ele" href="#experience">
+                    <img src="./icons/experience.svg" class="nav-ele-img">
+                    <span class="nav-ele-name">Experience</span>
+                </a>
+                <a class="nav-ele" href="#projects">
+                    <img src="./icons/projects.svg" class="nav-ele-img">
+                    <span class="nav-ele-name">Projects</span>
+                </a>
+                <a class="nav-ele" href="#education">
+                    <img src="./icons/education.svg" class="nav-ele-img marg-top-5">
+                    <span class="nav-ele-name">Education</span>
+                </a>
+                <a class="nav-ele" href="#certificate">
+                    <img src="./icons/about.svg" class="nav-ele-img">
+                    <span class="nav-ele-name">Certificates & Training</span>
+                </a>
+                <a class="nav-ele" href="#awards">
+                    <img src="./icons/awards.svg" class="nav-ele-img marg-top-5">
+                    <span class="nav-ele-name">Awards</span>
+                </a>
+                <a class="nav-ele" href="#contact">
+                    <img src="./icons/contact.svg" class="nav-ele-img marg-top-5">
+                    <span class="nav-ele-name">Contact</span>
+                </a>
+                <a class="nav-ele" target="_blank" href="https://drive.google.com/file/d/1Zmu7t3Ob6q3PB3cOJk3VsznnKptrk7t6/view?usp=sharing">
+                    <img src="./icons/resume.svg" class="nav-ele-img marg-top-5">
+                    <span class="nav-ele-name">Resume</span>
+                </a>
+            </div>
+    </div>
+    <!--flex container-->
+    <div class="nav-mobile">
+        <div class="nav-name-title">
+            <img src="./icons/mobile-menu.svg" class="hambergur-img" onclick="showNav()">
+            <div class="mobile-title">
+                <div class="nav-name"> Govind Gupta</div>
+                <div class="nav-title"> Full Stack Developer</div>
+            </div>
+        </div>
+    </div>
+    <div  id="mobile-side-nav">
+        <a class="nav-ele" href="#about" onclick="scrollWin()">
+            <img src="./icons/about.svg" class="nav-ele-img">
+            <span class="nav-ele-name">About</span>
+        </a>
+        <a class="nav-ele" href="#skills" onclick="scrollWin()">
+            <img src="./icons/skills.svg" class="nav-ele-img">
+            <span class="nav-ele-name">Skills</span>
+        </a>
+        <a class="nav-ele" href="#experience" onclick="scrollWin()">
+            <img src="./icons/experience.svg" class="nav-ele-img">
+            <span class="nav-ele-name">Experience</span>
+        </a>
+        <a class="nav-ele" href="#projects">
+            <img src="./icons/projects.svg" class="nav-ele-img">
+            <span class="nav-ele-name">Projects</span>
+        </a>
+        <a class="nav-ele" href="#education">
+            <img src="./icons/education.svg" class="nav-ele-img marg-top-5">
+            <span class="nav-ele-name">Education</span>
+        </a>
+        <a class="nav-ele" href="#certificate">
+            <img src="./icons/about.svg" class="nav-ele-img">
+            <span class="nav-ele-name">Certificates & Training</span>
+        </a>
+        <a class="nav-ele" href="#awards">
+            <img src="./icons/awards.svg" class="nav-ele-img marg-top-5">
+            <span class="nav-ele-name">Awards</span>
+        </a>
+        <a class="nav-ele" href="#contact">
+            <img src="./icons/contact.svg" class="nav-ele-img marg-top-5">
+            <span class="nav-ele-name">Contact</span>
+        </a>
+        <a class="nav-ele" target="_blank" href="https://drive.google.com/file/d/1Zmu7t3Ob6q3PB3cOJk3VsznnKptrk7t6/view?usp=sharing">
+            <img src="./icons/resume.svg" class="nav-ele-img marg-top-5">
+            <span class="nav-ele-name">Resume</span>
+        </a>
+    </div>
+
+    <div class="body"><!--class="body"-->
+        <div class="main-content-section">
+            <div class="self-image">
+                <img class="self-photo" src="./icons/Govind.JPG">
+            </div>
+            <div id="about">
+                <div class="heading">
+                    <span class="heading-title">ABOUT</span>
+                </div>
+                <div class="heading-content">
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> 8+ Years of Extensive experience in UI development, Web
+                            Analysis, Design, Application Testing, Performance Tuning and Technical Support
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Expertise in implementing React JS, Angular JS,
+                            Backbone JS, jQuery, JavaScript(ES5/ES6/ES7), Node JS, HTML5, HTTP, CSS3, AJAX, JSON, JAVA,
+                            JSP, JSX, XML
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Experience in working with version control tools such
+                            as Git, SVN, CVS and databases MongoDB, Firebase, Oracle 9i/10g, MySQL
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Hands on experience of writing ethereum contracts using
+                            web3.js and solidity
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Working experience in Agile as well as Waterfall models
+                            of SDLC
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Involved in sprint planning as a SCRUM Master, running
+                            daily standup, managing rally & Jira, tracking user stories and defects, assisting the team
+                            members and demoing developed functionalities.
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Oracle Certified Java Programmer (OCJP/SCJP), Java SE
+                            6
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Hands on experience with self‑motivated, independent
+                            and able to deliver on time with quality
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Efficient organizational work ethics, value based
+                            effective decision‑making, team based cooperation and communication skills.
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Master of Science in Computer Science from Texas A&M
+                            University‑ Kingsville, TX, USA
+                        </div>
+                    </div>
+                    <div class="heading-content-point">
+                        <div class="heading-dot"></div>
+                        <div class="heading-content-point-text"> Bachelor of Engineering in Computer Science and
+                            Engineering from MITM Indore, MP, INDIA
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="skills">
+                <div class="heading">
+                    <span class="heading-title">SKILLS</span>
+                </div>
+                <div class="heading-content">
+                    <div class="skill-card">
+                        <div class="skill-card-heading">FRONT END TECHNOLOGY</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/html5.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">HTML</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/js.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JS(ES5/ES6/ES7)</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/css3.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">CSS3</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jsx.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JSX</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/sass.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">SASS</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/less.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">LESS</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jquery.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">jQuery</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/json-file.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JSON</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/bootstrap.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Bootstrap</span>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-heading">DEVELOPMENT FRAMEWORKS & LIBRARIES</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/react.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">React</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/redux.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Redux</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/react.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">React-native</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/angular.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Angular</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/web3js.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Web3</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/node.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Node</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/express.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Express</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/mongo.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Mongoose</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jwt.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JWT</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/handlebars.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Handlebars</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/underscorejs.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Underscore</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/backbone.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Backbone</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/java.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JAVA</span>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-heading">APPLICATION/WEB SERVERS</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/nginx.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Nginx</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/express.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Express</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/tomcat.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Tomcat</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/weblogic.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">WebLogic</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/heroku.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Heroku</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jboss.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">JBoss</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jenkins.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Jenkins</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-heading">DATABASES</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/mongo.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">MongoDB</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/firebase.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Firebase</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/oracle.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Oracle</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/mysql.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">MySQL</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/sql-server.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">SQL Server</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/db2.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">DB2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-heading">BUILD TOOLS & DEPENDENCY MANAGERS</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/webpack.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Webpack</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/gulp.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Gulp</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/grunt.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Grunt</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/npm.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">NPM</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/yarn.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Yarn</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/bower.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Bower</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-heading">TESTING FRAMEWORKS & LIBRARIES</div>
+                        <div class="skill-card-heading-line"></div>
+                        <div class="skill-card-content">
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jest.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Jest</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jaismine.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Jasmine</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jest.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Enzyme</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/npm.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">NPM</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/protractor.svg" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Protractor</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/mocha.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Mocha</span>
+                                </div>
+                                <div class="skill-card-ele">
+                                    <img src="./icons/jest.png" class="skill-card-ele-img">
+                                    <span class="skill-card-ele-text">Expect</span>
+                                </div>
+                            </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div id="experience">
+                <div class="heading">
+                    <span class="heading-title">EXPERIENCE</span>
+                </div>
+                <div class="heading-content">
+                    <div class="cards-alignment">
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/innoplexus.png" class="experience-company-img">
+                                    <span class="experience-company-name">INNOPLEXUS</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Senior Software Engineer</div>
+                                    <div>Jul 16 - Present | Pune, India</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <!--<div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading">Exploring and development of multiple DApp of blockchain for ethereum and EOS tokens.</span>
+                                </div>-->
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">End to end delivery of the DApp (blockhain application)</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Writing and deployment of contract on blockchain using solidity & web3.js
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Complete Front end development using React JS, JavaScript (ES5/ES6/ES7), HTML5 and CSS3, Webpack
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Assisting team in technical code challenges & project processes
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Development of new functionalities in existing production application
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Active discussion with MD and Panel regarding progress of work
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/turtlemint.png" class="experience-company-img">
+                                    <span class="experience-company-name">FINTECH BLUE SOLUTIONS</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Senior Software Engineer</div>
+                                    <div>Sep 16 - Jun 17 | Mumbai, India</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">Complete development of front end of health insurance of customer facing website</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        In record time completed the entire term insurance vertical
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Completed the development of both B2B and B2C flow of application in angular and react JS for web and mobile application
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Active communication with CTO and founders
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Helping & guiding team members in understanding the requirement & solving technical challenge
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Development and testing of API in Node JS
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/adp.png" class="experience-company-img">
+                                    <span class="experience-company-name">ADP</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Senior UI Developer</div>
+                                    <div>Jul 14 - Jul 16 | Atlanta, USA</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Extensive involvement in design discussion with product owner, UX designer, developers & internal stack holders
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">As a SCRUM MASTER driving sprint planning, daily stand-up, managing rally, tracking user stories & defects, assisting team members and demoing developed functionality</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Developed the interactive(UI) templates using web technologies like HTML5 and LESS(CSS)
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Handled cross-browser/platform compatibility issues
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Write unit and E2E test cases using jaismine and cucumber
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Validating API's JSON response using making API call via postman
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/twc.jpg" class="experience-company-img">
+                                    <span class="experience-company-name">TIME WARNER CABLE</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Front End Developer</div>
+                                    <div>Apr 14 - Jul 14 | Herndon, USA</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">TWC central topic page development during football worldcup</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Worked with underscore template library for injecting the HTML templates in major layout
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Frond end development of TWC-central using jQuery, Backbone JS, HTML5 and CSS3
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/freescale.png" class="experience-company-img">
+                                    <span class="experience-company-name">FREESCALE SEMICONDUCTOR</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Microcontroller Ma. Intern</div>
+                                    <div>Jun 13 - Sep 13 | Austin, USA</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">To improve the online buying experience of customers, gathered information by browsing the sites of competitors websites and need to suggest what we can improve on our website</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Gathering technical and business development knowledge
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Analyzing the competition to provide essential insights on new products
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Responsible for demoing the product with different combinations of Pin's i.e. Multilink
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Responsible for preparing script and recording, to demonstrate step by step procedure in video(freescale.com/TWR‐56F8200)
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Prepared presentation for showing all the work done during internship
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/TAMUK.jpg" class="experience-company-img">
+                                    <span class="experience-company-name">TAMU – KINGSVILLE</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Graduate Re. Assistant</div>
+                                    <div>Oct 12 - Jun 13 | Kingsville, USA</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">Information gathering and doing research on all possible scenarios by discussing with the professors</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Worked as an android programmer for developing the applications using JAVA
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Making google map API's call for displaying the route on MAP
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Handled the API's call asynchronously using Multithreading
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Handled the tap events, changing the layout as per requirement
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Helping undergraduate students in JAVA and C programming
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="experience-card">
+                            <div class="experience-card-heading">
+                                <div class="experience-company-info">
+                                    <img src="./icons/tcs.png" class="experience-company-img">
+                                    <span class="experience-company-name">TATA CONSULTANCY SERVICES (TCS)</span>
+                                </div>
+                                <div class="experience-designation">
+                                    <div>Assistant Sys. Engineer</div>
+                                    <div>Sep 10 - Jul 12 | Pune, India</div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card-heading-line"></div>
+                            <div class="experience-card-content">
+                                <div class="skill-card-row">
+                                    <span class="experience-card-ele-text-heading"></span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">Analysis, Design, Implementation and testing of Algorithms to detect division by zero</span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Involved in high level and low level design doc creation of functionalities
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Develop the functionality division by zero in JAVA
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Involved in the coding of running the ESCAT from ECLI (ESCAT Command Line interface)
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Used eclipse as development tool and CVS as central repository
+                                    </span>
+                                </div>
+                                <div class="skill-card-row">
+                                    <span class="heading-dot"></span>
+                                    <span class="experience-card-ele-text">
+                                        Responsible for managing the ODC machines and delivering ESCAT after successful system testing
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects">
+                <div class="heading">
+                    <span class="heading-title">PROJECTS</span>
+                </div>
+                <div class="heading-content">
+                    <div class="project-cards-alignment ">
+                        <div class="project-card">
+                            <div class="project-card-heading">Expenses Manager</div>
+                            <div class="skill-card-heading-line"></div>
+                            <div class="project-card-content">
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text"> Authentication of user using google login</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text"> Add, update and delete of expenses</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text"> Date and description filter view of expenses</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text"> React and Redux for front end developement</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text"> Firebase db for expenses records</span>
+                                </div>
+                                <div class="url-card-row">
+                                    <a class="project-card-url" target="_blank" href="https://github.com/guptagovind/react-expensify">
+                                        <img src="./icons/github.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view source</span>
+                                    </a>
+                                    <a class="project-card-url" target="_blank" href="https://react-expenses-manager.herokuapp.com">
+                                        <img src="./icons/openurl.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view application</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-heading">Kickstart - Crowdfunding App</div>
+                            <div class="skill-card-heading-line"></div>
+                            <div class="project-card-content">
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">A Crowdfunding DApp using ethereum blockchain</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Smart contract writing in solidity</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Metamask and web3.js for contract deployment</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Front end development in React.js</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Unit testing using assert.js</span>
+                                </div>
+                                <div class="url-card-row">
+                                    <a class="project-card-url" target="_blank" href="https://github.com/guptagovind/kickstart">
+                                        <img src="./icons/github.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view source</span>
+                                    </a>
+                                    <a class="project-card-url">
+                                        <img src="./icons/openurl.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view application</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-heading">Node Chat Application</div>
+                            <div class="skill-card-heading-line"></div>
+                            <div class="project-card-content">
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Chat application developed using node.js</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Entire client-server application in node only</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Heavy use of node socket.io.</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Unit testing done in mocha.js</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Mustache.js is used for templating purpose</span>
+                                </div>
+                                <div class="url-card-row">
+                                    <a class="project-card-url" target="_blank" href="https://github.com/guptagovind/node-chat-app">
+                                        <img src="./icons/github.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view source</span>
+                                    </a>
+                                    <a class="project-card-url" target="_blank" href="https://nodechapapp.herokuapp.com/">
+                                        <img src="./icons/openurl.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view application</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-card-heading">Todo Application</div>
+                            <div class="skill-card-heading-line"></div>
+                            <div class="project-card-content">
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">A todo applicaion in node.js</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">API creation for app in node.js</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Express server for handling request</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Mongodb and mongoose is used for accessing data</span>
+                                </div>
+                                <div class="project-card-row">
+                                    <span class="project-dot"></span>
+                                    <span class="experience-card-ele-text">Authentication using Json web token (JWT)</span>
+                                </div>
+                                <div class="url-card-row">
+                                    <a class="project-card-url" target="_blank" href="https://github.com/guptagovind/node-todo-api">
+                                        <img src="./icons/github.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view source</span>
+                                    </a>
+                                    <a class="project-card-url">
+                                        <img src="./icons/openurl.svg" class="skill-card-ele-img">
+                                        <span class="project-card-ele-text">view application</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="education">
+                <div class="heading">
+                    <span class="heading-title">EDUCATION</span>
+                </div>
+                <div class="heading-content">
+                    <div class="cards-alignment">
+                        <div class="skill-card">
+                            <div class="edu-card-content">
+                                <div class="edu-card-row">
+                                    <div class="education-card-uni">TEXAS A&M UNIVERSITY – KINGSVILLE, TX, USA</div>
+                                    <div class="edu-card-year">Aug 12 - Dec 13</div>
+                                </div>
+                                <div class="edu-card-row">
+                                    <div class="edu-card-degree">Master of Science in Computer Science<a class="card-degree-view" target="_blank" href="https://drive.google.com/open?id=1NKwrUJ8Avdna-Y3XqhWMUbf_6T0JY2gS">(view)</a></div>
+                                    <div class="edu-card-gpa">GPA:  3.8</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="edu-card-content">
+                                <div class="edu-card-row">
+                                    <div class="education-card-uni">MEDICAPS INSTITUTE OF TECHNOLOGY AND MANAGEMENT (MITM) INDORE INDIA</div>
+                                    <div class="edu-card-year">Sep 06 - Jun 10</div>
+                                </div>
+                                <div class="edu-card-row">
+                                    <div class="edu-card-degree">Bachelor of Engineering in Computer Science and Engineering<a class="card-degree-view" target="_blank" href="https://drive.google.com/open?id=1eRoZEPpgLSG-Vg1z6PQfIYtGpeVjTbRc">(view)</a></div>
+                                    <div class="edu-card-gpa">GPA:  3.8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="certificate">
+                <div class="heading">
+                    <span class="heading-title">CERTIFICATES & TRAINING</span>
+                </div>
+                <div class="heading-content">
+                    <div class="cards-alignment">
+                        <div class="skill-card">
+                            <div class="certificate-card-content">
+                                <div class="certificate-card-row">
+                                    <div class="heading-dot"></div>
+                                    <div class="cert-card-cert">Oracle Certified Java Programmer (OCJP/SCJP), Java SE 6 with 100%, March 2011</div>
+                                </div>
+                                <div class="certificate-card-row">
+                                    <div class="heading-dot"></div>
+                                    <div class="cert-card-cert">Successfully completed Initial Learning Program (ILP) at TCS, Dec 2010</div>
+                                </div>
+                                <div class="cert-sub-cards">
+                                    <div class="cert-sub-card">
+                                        <div class="cert-card-ele">
+                                            <div class="cert-card-images">
+                                                <img src="./icons/udemy.svg" class="cert-card-ele-img">
+                                                <img src="./icons/react.svg" class="cert-card-ele-img">
+                                            </div>
+                                            <span class="cert-card-ele-text">The Complete React Web Developer Course (with Redux)</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-sub-card">
+                                        <div class="cert-card-ele">
+                                            <div class="cert-card-images">
+                                                <img src="./icons/udemy.svg" class="cert-card-ele-img">
+                                                <img src="./icons/ethereum.svg" class="cert-card-ele-img">
+                                            </div>
+                                            <span class="cert-card-ele-text">Ethereum and Solidity: The Complete Developer's Guide</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-sub-card">
+                                        <div class="cert-card-ele">
+                                            <div class="cert-card-images">
+                                                <img src="./icons/udemy.svg" class="cert-card-ele-img">
+                                                <img src="./icons/css3.svg" class="cert-card-ele-img">
+                                            </div>
+                                            <span class="cert-card-ele-text">Build Responsive Real World Websites with CSS3 v2.0</span>
+                                        </div>
+                                    </div>
+                                    <div class="cert-sub-card">
+                                        <div class="cert-card-ele">
+                                            <div class="cert-card-images">
+                                                <img src="./icons/udemy.svg" class="cert-card-ele-img">
+                                                <img src="./icons/node.svg" class="cert-card-ele-img">
+                                            </div>
+                                            <span class="cert-card-ele-text">The Complete Node.js Developer Course (2nd Edition)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="awards">
+                <div class="heading">
+                    <span class="heading-title">AWARDS</span>
+                </div>
+                <div class="heading-content">
+                    <div class="cards-alignment">
+                        <div class="skill-card">
+                            <div class="certificate-card-content">
+                                <div class="award-card-row">
+                                    <div class="heading-dot"></div>
+                                    <div class="cert-card-cert">Recipient, Cheers for Peers Award in Freescale Semiconductor Inc</div>
+                                </div>
+                                <div class="award-card-row">
+                                    <div class="heading-dot"></div>
+                                    <div class="cert-card-cert">Recipient, 2nd prize in 1st Annual Regional Javelina Research Symposium</div>
+                                </div>
+                                <div class="award-card-row">
+                                    <div class="heading-dot"></div>
+                                    <div class="cert-card-cert">Recipient, 3rd prize in Bhartiya Sanskriti Gyan Pariksha general knowledge competition at District level</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact">
+                <div class="heading">
+                    <span class="heading-title">CONTACT</span>
+                </div>
+                <div class="heading-content">
+                    <div class="cards-alignment">
+                        <div class="skill-card">
+                            <div class="certificate-card-content">
+                                <a class="contact-card-row" target="_top" href="mailto:govind.gupta2051@gmail.com">
+                                    <img src="./icons/email.svg" class="contact-card-ele-img">
+                                    <div class="contact-card-row-text">govind.gupta2051@gmail.com</div>
+                                </a>
+                                <a class="contact-card-row" target="_blank" href="https://github.com/guptagovind">
+                                    <img src="./icons/github.svg" class="contact-card-ele-img">
+                                    <div class="contact-card-row-text">github.com/guptagovind</div>
+                                </a>
+                                <a class="contact-card-row" target="_blank" href="https://www.linkedin.com/in/govind-gupta">
+                                    <img src="./icons/linkedin.svg" class="contact-card-ele-img">
+                                    <div class="contact-card-row-text">linkedin.com/in/govind-gupta</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showNav() {
+        let x = document.getElementById('mobile-side-nav');
+        if(x.style.display === "none" || !x.style.display){
+          x.style.display = "block"
+        }else{
+          x.style.display = "none";
+        }
+    }
+    window.onload = function(){
+      var hideMe = document.getElementById('mobile-side-nav');
+      document.onclick = function(e){
+        if(e.target.className !== 'hambergur-img'){
+          hideMe.style.display = 'none';
+        }
+      };
+    };
+
+</script>
+</body>
+</html>
