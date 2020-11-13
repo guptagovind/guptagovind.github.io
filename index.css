@@ -3,6 +3,9 @@ html {
     font-family: "Devanagari Sangam MN";
     // scroll-behavior: smooth;
 }
+body{
+    overflow: hidden;
+}
 
 *{
     margin: 0;
@@ -35,7 +38,7 @@ html {
     // display: none;
     position: sticky;
     top: 0;
-    height: 800px;
+    height: 100vh;
     color: rgb(253,253,253);
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
@@ -87,8 +90,8 @@ html {
 }
 
 .body {
-    // width: 100%;
-    // margin-left: 225px;
+    overflow-y: auto;
+    height: 100vh;
 }
 
 .main-content-section{
