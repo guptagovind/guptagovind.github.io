@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - Govind Gupta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0e27;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --text: #1a1a1a;
+            --text-light: #6b7280;
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .thank-you-container {
+            background: white;
+            max-width: 700px;
+            width: 100%;
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .checkmark-circle {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s ease-out 0.2s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark {
+            width: 60px;
+            height: 60px;
+            stroke: white;
+            stroke-width: 4;
+            stroke-linecap: round;
+            fill: none;
+            animation: drawCheck 0.5s ease-out 0.4s backwards;
+        }
+
+        @keyframes drawCheck {
+            from {
+                stroke-dasharray: 0, 100;
+            }
+            to {
+                stroke-dasharray: 100, 0;
+            }
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            animation: fadeIn 0.6s ease-out 0.3s backwards;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.6s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .info-box {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid var(--border);
+            animation: fadeIn 0.6s ease-out 0.5s backwards;
+        }
+
+        .info-box h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .info-box li {
+            padding: 0.75rem 0;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeIn 0.6s ease-out 0.6s backwards;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.3rem;
+            border: 2px solid var(--border);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeIn 0.6s ease-out 0.7s backwards;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: var(--bg);
+        }
+
+        .countdown {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            animation: fadeIn 0.6s ease-out 0.8s backwards;
+        }
+
+        .countdown-timer {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 3rem 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .message {
+                font-size: 1.1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <!-- Checkmark Animation -->
+        <div class="checkmark-circle">
+            <svg class="checkmark" viewBox="0 0 52 52">
+                <path d="M14 27l7 7 16-16" stroke-dasharray="100" stroke-dashoffset="0" />
+            </svg>
+        </div>
+
+        <!-- Main Message -->
+        <h1>Thank You!</h1>
+        <p class="message">
+            Your message has been successfully received. I appreciate you taking the time to reach out and I'm excited to learn more about your project!
+        </p>
+
+        <!-- What Happens Next -->
+        <div class="info-box">
+            <h3>What Happens Next?</h3>
+            <ul>
+                <li>I'll review your message within the next 24 hours</li>
+                <li>You'll receive a personalized response via email</li>
+                <li>We can schedule a call to discuss your project in detail</li>
+                <li>I'll provide insights and recommendations based on your needs</li>
+            </ul>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/govind-gupta" target="_blank" class="social-link" title="LinkedIn">💼</a>
+            <a href="https://github.com/guptagovind" target="_blank" class="social-link" title="GitHub">💻</a>
+            <a href="mailto:govind.gupta2051@gmail.com" class="social-link" title="Email">📧</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+            <a href="govind-portfolio.html" class="btn-primary">Back to Portfolio</a>
+            <a href="blog.html" class="btn-secondary">Read My Blog</a>
+        </div>
+
+        <!-- Auto Redirect Countdown -->
+        <div class="countdown">
+            <p>You will be automatically redirected to the homepage in <span class="countdown-timer" id="countdown">10</span> seconds.</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown and auto-redirect
+        let timeLeft = 10;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdownInterval = setInterval(() => {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = 'https://govindgupta.com/govind-portfolio.html';
+            }
+        }, 1000);
+
+        // Optional: Stop countdown if user interacts with the page
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                clearInterval(countdownInterval);
+            });
+        });
+    </script>
+</body>
+</html>
