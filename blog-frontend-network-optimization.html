@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Network Optimization: Speed Starts Before the UI Loads - Govind Gupta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="blog-frontend-network-optimization.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="govind-portfolio.html" class="logo">Govind Gupta</a>
+            <div class="nav-links">
+                <a href="govind-portfolio.html">← Back to Portfolio</a>
+                <a href="blog.html">All Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="article-header-content">
+            <span class="article-category">Performance</span>
+            <h1>Frontend Network Optimization: Speed Starts Before the UI Loads</h1>
+            <div class="article-meta">
+                <span>📅 February 3, 2026</span>
+                <span>⏱️ 8 min read</span>
+                <span>👤 Govind Gupta</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <img src="frontend-network-optimization.jpg" alt="Frontend Network Optimization Infographic">
+    </div>
+
+    <!-- Article Content -->
+    <article class="article-content">
+        <div class="article-body">
+            <p>When we think of frontend performance, we often focus on JavaScript efficiency or layout shifts. But a significant part of user experience depends on how efficiently we handle the network layer. Here are practical ways to optimize performance from a frontend perspective.</p>
+
+            <h3>Critical Rendering Path</h3>
+            <p>Optimize how the browser parses HTML, CSS, and JS to render content quickly. Prioritize above-the-fold content and reduce render-blocking resources. The critical rendering path is the sequence of steps the browser takes to convert HTML, CSS, and JavaScript into pixels on the screen.</p>
+            <p>To optimize the critical rendering path:</p>
+            <ul>
+                <li>Minimize the number of critical resources</li>
+                <li>Reduce the size of critical resources</li>
+                <li>Optimize the order in which critical resources are downloaded</li>
+                <li>Inline critical CSS for above-the-fold content</li>
+            </ul>
+
+            <h3>Minimize HTTP Requests</h3>
+            <p>The fewer the requests, the faster the page. Combine files where it makes sense, lazy load components, and avoid unnecessary dependencies. Each HTTP request adds overhead - from DNS lookup to TCP handshake to actual data transfer.</p>
+            <p>Strategies to minimize requests:</p>
+            <ul>
+                <li>Bundle CSS and JavaScript files appropriately</li>
+                <li>Use CSS sprites for small images</li>
+                <li>Implement lazy loading for images and components</li>
+                <li>Remove unused dependencies and code</li>
+            </ul>
+
+            <h3>Async and Defer JavaScript</h3>
+            <p>Load scripts without blocking the page rendering. Use <code>async</code> for independent scripts and <code>defer</code> for scripts that depend on the DOM. This simple technique can dramatically improve perceived performance.</p>
+            <p><strong>The difference:</strong></p>
+            <ul>
+                <li><code>async</code> - Downloads the script in parallel and executes it as soon as it's available</li>
+                <li><code>defer</code> - Downloads the script in parallel but waits to execute until HTML parsing is complete</li>
+            </ul>
+
+            <h3>Avoid Redirection</h3>
+            <p>Every redirect adds delay. Clean URLs and direct paths improve speed, especially for initial page loads. A single redirect can add 200-500ms to your load time - that's significant in today's fast-paced web.</p>
+
+            <h3>Resource Hinting</h3>
+            <p>Help the browser anticipate what's needed. Resource hints are a powerful way to improve performance by giving the browser advance notice about resources that will be needed:</p>
+            <ul>
+                <li><strong>Preload</strong> - <code>&lt;link rel="preload"&gt;</code> for critical assets that will be needed immediately</li>
+                <li><strong>Prefetch</strong> - <code>&lt;link rel="prefetch"&gt;</code> for future navigations and secondary content</li>
+                <li><strong>DNS-prefetch</strong> - <code>&lt;link rel="dns-prefetch"&gt;</code> to reduce DNS lookup time for external domains</li>
+                <li><strong>Preconnect</strong> - <code>&lt;link rel="preconnect"&gt;</code> to establish early connections to important origins</li>
+            </ul>
+
+            <h3>Fetch Priority</h3>
+            <p>Set fetch priorities on images and resources using the <code>fetchpriority</code> attribute so that the most important content loads first. This helps the browser make better decisions about resource loading order.</p>
+            <p>Example: <code>&lt;img src="hero.jpg" fetchpriority="high"&gt;</code></p>
+
+            <h3>Early Hints (HTTP 103)</h3>
+            <p>This allows the server to suggest critical resources even before the full response is ready, helping the browser start fetching early. Early Hints is a relatively new feature that can shave hundreds of milliseconds off your load time by allowing the browser to start loading resources while the server is still generating the response.</p>
+
+            <h3>HTTP Protocol Upgrades</h3>
+            <p>Switch to HTTP/2 or HTTP/3 where possible. These protocols support:</p>
+            <ul>
+                <li><strong>Multiplexing</strong> - Multiple requests over a single connection</li>
+                <li><strong>Header compression</strong> - Reduced overhead with HPACK compression</li>
+                <li><strong>Server push</strong> - Proactive resource delivery</li>
+                <li><strong>Faster connection setups</strong> - HTTP/3 uses QUIC which reduces latency</li>
+            </ul>
+
+            <h3>Compression</h3>
+            <p>Serve assets with Brotli or Gzip compression to reduce file size and speed up transfers. Brotli typically achieves 15-25% better compression than Gzip, resulting in faster downloads and reduced bandwidth costs.</p>
+            <p>Most modern web servers support both compression algorithms, and browsers will automatically negotiate the best option.</p>
+
+            <h3>HTTP Caching</h3>
+            <p>Configure caching headers like <code>Cache-Control</code>, <code>ETag</code>, and <code>Last-Modified</code> so that users don't have to download the same content repeatedly. Proper caching can turn a 3-second page load into a sub-second experience for returning visitors.</p>
+            <p>Effective caching strategies:</p>
+            <ul>
+                <li>Use long cache times for immutable assets (with versioned URLs)</li>
+                <li>Implement cache validation with ETags</li>
+                <li>Use <code>Cache-Control: immutable</code> for resources that never change</li>
+                <li>Set appropriate <code>max-age</code> values based on update frequency</li>
+            </ul>
+
+            <h3>Service Worker Caching</h3>
+            <p>Take caching to the next level by using service workers to manage resources for offline support and faster repeat visits. Service workers give you fine-grained control over caching strategies and can even enable your app to work completely offline.</p>
+            <p>Popular caching strategies include:</p>
+            <ul>
+                <li><strong>Cache First</strong> - Serve from cache, fall back to network</li>
+                <li><strong>Network First</strong> - Try network, fall back to cache</li>
+                <li><strong>Stale While Revalidate</strong> - Serve from cache while updating in background</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p><strong>Improving these areas can lead to significant gains in load time, interactivity, and overall user experience.</strong> Performance is a shared responsibility across the stack, and as frontend developers, being network-aware is key. Every millisecond counts, and optimizing the network layer is often the biggest win you can achieve.</p>
+            <p>Start by measuring your current performance using tools like Lighthouse, WebPageTest, or Chrome DevTools. Then implement these optimizations one by one, measuring the impact of each change. You'll be amazed at how much faster your applications can become!</p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="article-cta">
+            <h3>Need Help Optimizing Your Web Application?</h3>
+            <p>I specialize in building high-performance web applications with 14+ years of experience. Let's discuss how I can help improve your application's speed and user experience.</p>
+            <a href="govind-portfolio.html#contact" class="cta-btn">Get in Touch</a>
+        </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="blog-react-performance.html" class="related-card">
+                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop" alt="React Performance">
+                <div class="related-card-content">
+                    <h3>Optimizing React Performance: 10 Essential Tips</h3>
+                    <p>Learn proven techniques to dramatically improve your React application's performance.</p>
+                </div>
+            </a>
+            <a href="blog-ai-integration.html" class="related-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop" alt="AI Integration">
+                <div class="related-card-content">
+                    <h3>Integrating AI into Web Applications</h3>
+                    <p>Discover how to leverage ChatGPT and Claude APIs to build intelligent features.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Govind Gupta. All rights reserved.</p>
+    </footer>
+</body>
+</html>
