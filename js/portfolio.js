@@ -13,8 +13,46 @@ document.body.addEventListener('click', function (e) {
             behavior: 'smooth',
             block: 'start'
         });
+        closeMobileNav();
     }
 });
+
+function openMobileNav() {
+    document.body.classList.add('nav-open');
+    var btn = document.getElementById('navToggle');
+    var overlay = document.getElementById('navMenuOverlay');
+    if (btn) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close menu');
+    }
+    if (overlay) overlay.setAttribute('aria-hidden', 'false');
+}
+
+function closeMobileNav() {
+    document.body.classList.remove('nav-open');
+    var btn = document.getElementById('navToggle');
+    var overlay = document.getElementById('navMenuOverlay');
+    if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+    }
+    if (overlay) overlay.setAttribute('aria-hidden', 'true');
+}
+
+function initMobileNav() {
+    var toggle = document.getElementById('navToggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+        if (document.body.classList.contains('nav-open')) {
+            closeMobileNav();
+        } else {
+            openMobileNav();
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMobileNav();
+    });
+}
 
 function initPortfolio() {
     const form = document.getElementById('contactForm');
@@ -77,4 +115,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', initPortfolio);
+document.addEventListener('DOMContentLoaded', function () {
+    initMobileNav();
+    initPortfolio();
+});
