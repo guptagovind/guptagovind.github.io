@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflows vs. Agents: Choosing the Right Architecture for Agentic Systems - Govind Gupta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/blog-workflows-vs-agents.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Govind Gupta</a>
+            <a href="blog.html" class="back-link">← All Articles</a>
+        </div>
+    </nav>
+    <header class="article-header">
+        <div class="article-header-content">
+            <span class="article-category">AI & Architecture</span>
+            <h1>Workflows vs. Agents: Choosing the Right Architecture for Agentic Systems</h1>
+            <div class="article-meta">
+                <span>📅 February 7, 2026</span>
+                <span>⏱️ 6 min read</span>
+            </div>
+        </div>
+    </header>
+    <article class="article-content">
+        <div class="article-body">
+            <p>When building with LLMs, the choice between a predefined workflow and an autonomous agent depends on your requirement for predictability versus flexibility.</p>
+
+            <h2>Workflows (Orchestrated Paths)</h2>
+            <p>In a workflow, the system follows code-defined logic. This is ideal for production environments where reliability and latency are priorities.</p>
+
+            <h3>Common Patterns</h3>
+            
+            <h4>Prompt Chaining</h4>
+            <p>Sequential sub-tasks where the output of one step becomes the input of the next. This creates a predictable, linear flow through your system.</p>
+
+            <h4>Routing</h4>
+            <p>Directing input to specialized handlers based on conditions or classification. This allows you to route different types of requests to the most appropriate processing path.</p>
+
+            <h4>Parallelization</h4>
+            <p>Running independent tasks simultaneously and then aggregating results. This pattern maximizes efficiency when you have multiple unrelated operations that can execute concurrently.</p>
+
+            <h4>Orchestrator-Worker</h4>
+            <p>Dynamic task decomposition and synthesis. An orchestrator model breaks down a complex task into smaller sub-tasks, distributes them to worker models, and a synthesizer model combines the results into a final output.</p>
+
+            <h4>Evaluator-Optimizer</h4>
+            <p>An iterative loop where one LLM generates solutions and another provides feedback for refinement. This creates a self-improving system that can iterate until it reaches an acceptable quality threshold.</p>
+
+            <h2>Agents (Dynamic Autonomy)</h2>
+            <p>Agents are used when the steps cannot be hardcoded. They utilize feedback loops to observe results and adjust their actions dynamically.</p>
+
+            <h3>Pros</h3>
+            <ul>
+                <li><strong>Highly flexible:</strong> Capable of adapting to unexpected scenarios</li>
+                <li><strong>Open-ended problem solving:</strong> Can tackle complex problems without predefined paths</li>
+                <li><strong>Self-directed:</strong> Makes decisions autonomously based on context</li>
+            </ul>
+
+            <h3>Cons</h3>
+            <ul>
+                <li><strong>Less predictable:</strong> Outputs and paths can vary significantly</li>
+                <li><strong>Requires robust monitoring:</strong> Need visibility into agent reasoning and decisions</li>
+                <li><strong>Needs sandboxing:</strong> Must have boundaries to prevent unintended behavior</li>
+            </ul>
+
+            <h3>Core Characteristics</h3>
+            
+            <h4>Open-Ended</h4>
+            <p>Unpredictable steps with no hardcoded path. The agent explores solutions dynamically rather than following a predetermined sequence.</p>
+
+            <h4>Feedback Loops</h4>
+            <p>Process → Information → Adjust → Repeat. Agents continuously observe their environment, gather information, adjust their approach, and iterate.</p>
+
+            <h4>No Fixed Path</h4>
+            <p>Fluid and dynamic design pattern. The agent can take different routes to reach a solution based on what it discovers along the way.</p>
+
+            <div class="article-image-container">
+                <img src="workflows-vs-agents.png" alt="Agentic Systems: Workflows vs. Agents — Architecture Overview" class="article-main-image">
+            </div>
+
+            <h2>Risks and Mitigation</h2>
+            <p>Autonomy introduces variables that are difficult to manage at scale:</p>
+
+            <div class="risks-section">
+                <h3>Risks</h3>
+                <ul>
+                    <li><strong>Unpredictable Paths:</strong> The system may take unexpected routes, making it difficult to debug or reproduce issues</li>
+                    <li><strong>Unpredictable Outputs:</strong> Results can vary significantly between runs, even with the same input</li>
+                    <li><strong>Compounding Costs:</strong> Recursive loops can lead to high API consumption, especially if the agent gets stuck in iteration cycles</li>
+                </ul>
+            </div>
+
+            <div class="mitigation-section">
+                <h3>Mitigation</h3>
+                <ul>
+                    <li><strong>Monitor:</strong> Implement visibility tools to track internal reasoning, decision points, and execution paths</li>
+                    <li><strong>Guardrails:</strong> Establish strict boundaries to ensure the system remains safe, consistent, and within acceptable cost limits</li>
+                </ul>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>Agents are powerful for open-ended, complex problems where flexibility is more important than predictability. They excel in scenarios where you cannot anticipate all possible paths or outcomes.</p>
+
+            <p>However, in many cases, a well-designed workflow is more reliable and more cost-efficient. Workflows provide:</p>
+            <ul>
+                <li>Predictable performance and latency</li>
+                <li>Lower costs through controlled API usage</li>
+                <li>Easier debugging and maintenance</li>
+                <li>Better reliability for production systems</li>
+            </ul>
+
+            <p><strong>Key Takeaway:</strong> Choose workflows when you need reliability, predictability, and cost control. Choose agents when you need flexibility for truly open-ended problems, but always implement proper monitoring and guardrails.</p>
+        </div>
+        <div class="article-cta">
+            <h3>Building Agentic Systems?</h3>
+            <p>Need help choosing the right architecture for your LLM-powered application?</p>
+            <a href="../index.html#contact" class="cta-btn">Let's Talk</a>
+        </div>
+    </article>
+    <footer><p>&copy; 2026 Govind Gupta. All rights reserved.</p></footer>
+</body>
+</html>

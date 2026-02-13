@@ -305,6 +305,17 @@ nav .cta-btn:hover {
     transform: scale(1.1);
 }
 
+.blog-image-contain {
+    height: auto;
+    background: #0a1628;
+}
+
+.blog-image-contain img {
+    object-fit: contain;
+    height: auto;
+    padding: 0.5rem;
+}
+
 .blog-category {
     position: absolute;
     top: 1rem;
