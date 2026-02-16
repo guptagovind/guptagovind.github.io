@@ -80,19 +80,19 @@ function initPortfolio() {
                 if (response.ok) {
                     window.location.href = 'thank-you.html';
                 } else {
-                    alert('Oops! There was a problem submitting your form. Please try again or email me directly at govind.gupta2051@gmail.com');
+                    alert('Oops! There was a problem submitting your form. Please try again or email me directly at govind@govindgupta.com');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 }
             } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again or email me directly at govind.gupta2051@gmail.com');
+                alert('Oops! There was a problem submitting your form. Please try again or email me directly at govind@govindgupta.com');
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
     }
 
-    document.querySelectorAll('.service-card, .timeline-item, .contact-item').forEach(el => {
+    document.querySelectorAll('.service-card, .package-card, .case-study-card, .timeline-item, .contact-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
