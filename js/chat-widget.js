@@ -31,22 +31,44 @@
   const inputEl = document.getElementById('chatWidgetInput');
   const sendBtn = document.getElementById('chatWidgetSend');
 
+  const GREETING = "Hi! I'm Govind's AI assistant. Ask me about MVP development, pricing, or how to book a call.";
+
   function togglePanel(open) {
     const isOpen = open !== undefined ? open : !panel.classList.contains('open');
     panel.classList.toggle('open', isOpen);
     btn.setAttribute('aria-label', isOpen ? 'Close chat' : 'Open chat');
     btn.setAttribute('aria-expanded', isOpen);
-    if (isOpen) inputEl.focus();
+    if (isOpen) {
+      if (messagesEl.children.length === 0) {
+        addMessage('assistant', GREETING, false, true);
+      }
+      inputEl.focus();
+    }
   }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && panel.classList.contains('open')) togglePanel(false);
   });
 
-  function addMessage(role, content, isError = false) {
+  function formatMessage(text) {
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    return escaped
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+      .replace(/(\/#services)/g, '<a href="#services" class="chat-scroll-link">Services section</a>');
+  }
+
+  function addMessage(role, content, isError = false, useHtml = false) {
     const div = document.createElement('div');
     div.className = `chat-widget-message ${role}${isError ? ' error' : ''}`;
-    div.textContent = content;
+    if (useHtml && role === 'assistant') {
+      div.innerHTML = formatMessage(content);
+    } else {
+      div.textContent = content;
+    }
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return div;
@@ -85,7 +107,7 @@
         return;
       }
 
-      addMessage('assistant', data.reply);
+      addMessage('assistant', data.reply, false, true);
       history.push({ role: 'assistant', content: data.reply });
     } catch (err) {
       typingEl.remove();

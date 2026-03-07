@@ -113,6 +113,20 @@
   color: var(--text-light);
 }
 
+.chat-widget-message a {
+  color: var(--accent);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.chat-widget-message.user a {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.chat-widget-message strong {
+  font-weight: 600;
+}
+
 .chat-widget-input-area {
   padding: 1rem;
   border-top: 1px solid var(--border);

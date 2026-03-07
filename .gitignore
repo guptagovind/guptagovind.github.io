@@ -2,3 +2,4 @@
 .cursor
 docs
 node_modules
+.env.local
