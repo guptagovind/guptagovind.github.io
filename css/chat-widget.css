@@ -38,6 +38,7 @@
   bottom: calc(56px + 1rem);
   right: 0;
   width: 380px;
+  max-width: calc(100vw - 2rem);
   max-height: 480px;
   background: var(--card-bg);
   border-radius: 16px;
@@ -79,10 +80,13 @@
 
 .chat-widget-message {
   max-width: 85%;
+  min-width: 0;
   padding: 0.75rem 1rem;
   border-radius: 12px;
   font-size: 0.95rem;
   line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .chat-widget-message.user {
@@ -115,10 +119,13 @@
   display: flex;
   gap: 0.5rem;
   align-items: flex-end;
+  min-width: 0;
+  flex-shrink: 0;
 }
 
 .chat-widget-input {
   flex: 1;
+  min-width: 0;
   padding: 0.75rem 1rem;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -157,23 +164,28 @@
   cursor: not-allowed;
 }
 
-/* Mobile: full-width panel */
+/* Mobile: full-width panel, viewport-centered to prevent cutoff */
 @media (max-width: 480px) {
   .chat-widget {
     bottom: 1rem;
     right: 1rem;
+    left: auto;
   }
 
   .chat-widget-panel {
-    width: calc(100vw - 2rem);
-    right: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    max-width: calc(100vw - 2rem);
+    bottom: calc(56px + 1.5rem);
+    transform: translateY(10px);
     max-height: 70vh;
+    z-index: 9999;
   }
 
   .chat-widget-panel.open {
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 
   .chat-widget-messages {
