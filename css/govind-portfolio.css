@@ -292,6 +292,16 @@ nav .cta-btn:hover {
     gap: 2.5rem;
 }
 
+.blog-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-card-link:hover .blog-read-more {
+    gap: 1rem;
+}
+
 .blog-card {
     background: white;
     border-radius: 20px;

@@ -37,6 +37,12 @@
     gap: 3rem;
 }
 
+.blog-post-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .blog-post {
     background: white;
     border-radius: 20px;

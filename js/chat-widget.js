@@ -62,7 +62,7 @@
       .replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>')
       .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
       .replace(/(?<![.\w:])(linkedin\.com\/[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]*)?)/g, '<a href="https://www.$1" target="_blank" rel="noopener">$1</a>')
-      .replace(/(\/#services)/g, '<a href="#services" class="chat-scroll-link">Services section</a>');
+      .replace(/(\/#services)/g, '<a href="/#services" class="chat-scroll-link">Services section</a>');
     result = result.replace(
       /<a href="https?:\/\/cal\.com\/govindgupta[^"]*"[^>]*>[^<]*<\/a>/gi,
       '<a href="' + CTA_URL + '" target="_blank" rel="noopener" class="chat-cta-btn">Book a Free Call</a>'

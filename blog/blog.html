@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/chat-widget.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -30,7 +31,39 @@
     <div class="blog-container">
         <div class="blog-list">
 
+            <!-- Blog Post - AI Chat Assistant (Latest) -->
+            <a href="ai-chat-assistant.html" class="blog-post-link">
+            <article class="blog-post" id="ai-chat-assistant">
+                <img src="ai-chat-assistant.png" alt="AI Chat Assistant: Architecture Overview" class="blog-post-image">
+                <div class="blog-post-content">
+                    <span class="blog-category-tag">AI & Portfolio</span>
+                    <div class="blog-post-meta">
+                        <span>📅 March 7, 2026</span>
+                        <span>⏱️ 8 min read</span>
+                        <span>👤 Govind Gupta</span>
+                    </div>
+                    <h2>AI Chat Assistant for Portfolio Site</h2>
+                    <div class="blog-post-excerpt">
+                        <p>When visitors land on your portfolio, they often have questions. I added an AI chat assistant that answers them 24/7 and lets visitors book a call without leaving the page. Here's how it works.</p>
+                    </div>
+                    <div class="blog-post-body">
+                        <h3>Architecture</h3>
+                        <p>A static site on Vercel with a serverless API route that handles chat requests and calls OpenAI. The profile context defines everything the AI knows; the frontend never sees the API key.</p>
+                        
+                        <h3>Implementation</h3>
+                        <p>Vanilla JS chat widget, message formatting (bold, links, CTA button), mobile-responsive panel. GPT-4o-mini for cost-effective Q&A.</p>
+                        
+                        <h3>Lessons Learned</h3>
+                        <p>Keeping responses concise, handling LinkedIn URLs with/without protocol, and fixing mobile panel cutoff with position: fixed.</p>
+                        
+                        <p><strong>Outcome:</strong> Visitors can ask about services or booking and get an instant, helpful response.</p>
+                    </div>
+                </div>
+            </article>
+            </a>
+
             <!-- Blog Post - Workflows vs. Agents -->
+            <a href="workflows-vs-agents.html" class="blog-post-link">
             <article class="blog-post" id="workflows-vs-agents">
                 <img src="workflows-vs-agents.png" alt="Workflows vs. Agents: Architecture Comparison" class="blog-post-image">
                 <div class="blog-post-content">
@@ -40,7 +73,7 @@
                         <span>⏱️ 6 min read</span>
                         <span>👤 Govind Gupta</span>
                     </div>
-                    <h2><a href="workflows-vs-agents.html">Workflows vs. Agents: Choosing the Right Architecture for Agentic Systems</a></h2>
+                    <h2>Workflows vs. Agents: Choosing the Right Architecture for Agentic Systems</h2>
                     <div class="blog-post-excerpt">
                         <p>When building with LLMs, the choice between a predefined workflow and an autonomous agent depends on your requirement for predictability versus flexibility. Learn when to use each approach and how to mitigate the risks of agentic systems.</p>
                     </div>
@@ -58,6 +91,7 @@
                     </div>
                 </div>
             </article>
+            </a>
 
         </div>
     </div>
@@ -66,5 +100,6 @@
     <footer>
         <p>&copy; 2026 Govind Gupta. All rights reserved.</p>
     </footer>
+    <script src="../js/chat-widget.js"></script>
 </body>
 </html>
