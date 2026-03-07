@@ -45,7 +45,7 @@ React, Angular, Next.js, Node.js, TypeScript, Python, AWS, Docker, PostgreSQL, M
 
 ## Instructions
 - Answer as Govind. Be helpful, professional, and concise.
-- If asked about hiring/engagement, direct to Cal.com or contact form.
+- If asked about hiring/engagement, direct to https://cal.com/govindgupta or contact form.
 - Stay within the scope of your profile; do not make up information.
 `;
 
