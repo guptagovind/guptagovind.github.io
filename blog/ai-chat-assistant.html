@@ -23,7 +23,7 @@
             <h1>AI Chat Assistant for Portfolio Site</h1>
             <div class="article-meta">
                 <span>📅 March 7, 2026</span>
-                <span>⏱️ 8 min read</span>
+                <span>⏱️ 9 min read</span>
             </div>
         </div>
     </header>
@@ -71,21 +71,35 @@ User sees reply ← formatMessage() ← JSON { reply } ← api/chat.js</code></p
             <h3>Security</h3>
             <p>The OpenAI API key lives only in Vercel's environment variables. The frontend never sees it. All requests go through the serverless function.</p>
 
+            <h2>The Hard Part: Prompt Engineering</h2>
+            <p>The <code>profile-context.js</code> file went through many iterations. Getting the tone right for a small chat bubble (concise, warm, not robotic) was harder than the code. The architecture is straightforward. The system prompt is where the real work lives.</p>
+            <p>Specific challenges: stopping the AI from dumping bullet lists (visitors want a quick answer, not a wall of text), handling off-topic questions with humour instead of a dead-end "I can only answer about Govind," and formatting links and CTAs so they render properly in the chat UI instead of showing raw markdown. The chat widget doesn't support full markdown, so the system prompt has explicit rules: use raw URLs (the UI auto-renders them), never output <code>[text](url)</code> syntax, use <code>/#services</code> for the Services section link so <code>formatMessage()</code> can turn it into a clickable anchor.</p>
+            <p>The system prompt has rules for different question types: services, pricing, booking, technical feasibility, experience, off-topic. Each has a different response pattern. The CTA rule is strict: every response ends with exactly one Cal.com URL on its own line, which the UI converts to a styled button. No exceptions, no repetition.</p>
+            <p>Key lesson: the system prompt <em>is</em> the product. Spend 80% of your effort there.</p>
+
             <h2>Design Decisions</h2>
             <ul>
                 <li><strong>GPT-4o-mini:</strong> Cost-effective for Q&A. A few cents per day for typical traffic.</li>
+                <li><strong>Model-agnostic:</strong> The architecture doesn't care which LLM you use. Swapping to Claude, Gemini, or any other model would only require changing the API call in the serverless function. The <code>profile-context</code> system prompt works with any of them.</li>
                 <li><strong>Non-streaming:</strong> Started simple. A "Thinking..." placeholder while waiting for the full response.</li>
                 <li><strong>Greeting + CTA:</strong> Every response ends with a call-to-action to book a free call. For booking-specific questions, the reply is just the CTA, no redundant phrasing.</li>
             </ul>
 
             <h2>Outcome</h2>
             <p>Visitors can now ask about MVP development or how to book a call and get an instant, helpful response. The chat feels like a natural part of the site, and the "Book a Free Call" button makes the next step obvious.</p>
+            <p>The most common questions are about services and how to book a call, which tells me visitors want quick answers, not long scrolls. I don't have hard analytics yet on chat usage vs. browsing or whether chat users convert to calls more often, but that's exactly what I'm building next.</p>
 
-            <p>If you're on my portfolio, try it. If you want something similar for yours, let's talk.</p>
+            <h2>What's Next</h2>
+            <p>This is a living project, not a one-and-done. Here's what I'm iterating on next:</p>
+            <ul>
+                <li><strong>Streaming responses:</strong> Replace the "Thinking..." placeholder with token-by-token streaming so replies feel more responsive.</li>
+                <li><strong>Conversation memory:</strong> Right now each turn is stateless. Adding session memory so the chat remembers context within a visit.</li>
+                <li><strong>Analytics:</strong> Track what visitors ask most and use that to improve the site content and the profile context itself.</li>
+            </ul>
         </div>
         <div class="article-cta">
             <h3>Want to Add an AI Assistant to Your Site?</h3>
-            <p>I can help you build a chat widget, integrate with your content, and keep costs under control.</p>
+            <p>I can help you build a chat widget and integrate it with your content.</p>
             <a href="../index.html#contact" class="cta-btn">Let's Talk</a>
         </div>
     </article>
