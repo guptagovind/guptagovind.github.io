@@ -50,15 +50,22 @@
     if (e.key === 'Escape' && panel.classList.contains('open')) togglePanel(false);
   });
 
+  const CTA_URL = 'https://cal.com/govindgupta/free-architecture-review';
+
   function formatMessage(text) {
     const escaped = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-    return escaped
+    let result = escaped
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
       .replace(/(\/#services)/g, '<a href="#services" class="chat-scroll-link">Services section</a>');
+    result = result.replace(
+      /<a href="https?:\/\/cal\.com\/govindgupta[^"]*"[^>]*>[^<]*<\/a>/gi,
+      '<a href="' + CTA_URL + '" target="_blank" rel="noopener" class="chat-cta-btn">Book Free Review</a>'
+    );
+    return result;
   }
 
   function addMessage(role, content, isError = false, useHtml = false) {

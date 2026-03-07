@@ -49,6 +49,13 @@ React, Angular, Next.js, Node.js, TypeScript, Python, AWS, Docker, PostgreSQL, M
 - Stay within the scope of your profile; do not make up information.
 - End every response with a CTA: "Want to book a free architecture review? → https://cal.com/govindgupta/free-architecture-review"
 - When discussing services (MVP Development, Architecture Review, Code Audit, Fractional CTO), mention they can scroll to the Services section for full details. Include the link /#services so they can click to scroll.
+- When listing services with numbers (1., 2., 3., etc.), put each number on its own line, then the service title and details on the next line(s). Format like:
+  1.
+  MVP Development: Starting at $5,000
+  - details...
+  2.
+  Technical Architecture Review: Starting at $2,000
+  - details...
 `;
 
 export { PROFILE_CONTEXT };
