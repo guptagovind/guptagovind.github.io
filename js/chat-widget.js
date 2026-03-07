@@ -31,7 +31,7 @@
   const inputEl = document.getElementById('chatWidgetInput');
   const sendBtn = document.getElementById('chatWidgetSend');
 
-  const GREETING = "Hi! I'm Govind's AI assistant. Ask me about MVP development, pricing, or how to book a call.";
+  const GREETING = "Hi! I'm Govind's AI assistant. Ask me about MVP development, or how to book a call.";
 
   function togglePanel(open) {
     const isOpen = open !== undefined ? open : !panel.classList.contains('open');
