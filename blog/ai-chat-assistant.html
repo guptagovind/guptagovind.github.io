@@ -13,7 +13,10 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="../index.html" class="logo">Govind Gupta</a>
+            <a href="../index.html" class="logo">
+                <img src="../icons/Govind.JPG" alt="" class="logo-avatar" width="40" height="40" decoding="async">
+                <span class="logo-text">Govind Gupta</span>
+            </a>
             <a href="blog.html" class="back-link">← All Articles</a>
         </div>
     </nav>
@@ -35,7 +38,7 @@
             <p>An AI chat on a portfolio isn't just a novelty. It increases engagement, showcases your technical skills, and gives visitors a low-friction way to learn about you. I wanted something that:</p>
             <ul>
                 <li>Answers questions about my services and experience</li>
-                <li>Directs people to book a free architecture review when they're ready</li>
+                <li>Directs people to book a free discovery call when they're ready</li>
                 <li>Feels like a natural extension of the site, not a separate tool</li>
             </ul>
 
@@ -82,7 +85,7 @@ User sees reply ← formatMessage() ← JSON { reply } ← api/chat.js</code></p
                 <li><strong>GPT-4o-mini:</strong> Cost-effective for Q&A. A few cents per day for typical traffic.</li>
                 <li><strong>Model-agnostic:</strong> The architecture doesn't care which LLM you use. Swapping to Claude, Gemini, or any other model would only require changing the API call in the serverless function. The <code>profile-context</code> system prompt works with any of them.</li>
                 <li><strong>Non-streaming:</strong> Started simple. A "Thinking..." placeholder while waiting for the full response.</li>
-                <li><strong>Greeting + CTA:</strong> Every response ends with a call-to-action to book a free call. For booking-specific questions, the reply is just the CTA, no redundant phrasing.</li>
+                <li><strong>Greeting + CTA:</strong> Every response ends with a call-to-action to book a free discovery call. For booking-specific questions, the reply is just the CTA, no redundant phrasing.</li>
             </ul>
 
             <h2>Outcome</h2>

@@ -55,6 +55,26 @@ nav {
     font-weight: 700;
     color: var(--primary);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-width: 0;
+}
+
+.logo-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(10, 14, 39, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.logo-text {
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 /* Hamburger: hidden on desktop */
@@ -402,6 +422,15 @@ footer {
         background: #ffffff;
     }
 
+    .logo {
+        gap: 0.5rem;
+    }
+
+    .logo-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
     .article-header h1 {
         font-size: 2.5rem;
     }
@@ -416,6 +445,17 @@ footer {
 
     .article-body h3 {
         font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo-avatar {
+        width: 32px;
+        height: 32px;
     }
 }
 

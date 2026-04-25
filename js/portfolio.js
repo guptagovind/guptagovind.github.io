@@ -92,7 +92,7 @@ function initPortfolio() {
         });
     }
 
-    document.querySelectorAll('.service-card, .package-card, .case-study-card, .timeline-item, .contact-item').forEach(el => {
+    document.querySelectorAll('.service-card, .package-card, .case-study-card, .timeline-item, .contact-item, .audience-card, .differentiator-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

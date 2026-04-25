@@ -5,6 +5,11 @@
 (function () {
   const history = [];
 
+  const CHAT_SESSION_DISMISSED = 'portfolio_chat_dismissed';
+  const CHAT_SESSION_AUTO_DONE = 'portfolio_chat_auto_done';
+  const AUTO_OPEN_MS = 5000;
+  const DESKTOP_MIN_WIDTH = 768;
+
   const html = `
     <div class="chat-widget" id="chatWidget">
       <button type="button" class="chat-widget-btn" aria-label="Open chat" id="chatWidgetBtn">
@@ -25,32 +30,96 @@
 
   document.body.insertAdjacentHTML('beforeend', html);
 
+  const widget = document.getElementById('chatWidget');
   const btn = document.getElementById('chatWidgetBtn');
   const panel = document.getElementById('chatWidgetPanel');
   const messagesEl = document.getElementById('chatWidgetMessages');
   const inputEl = document.getElementById('chatWidgetInput');
   const sendBtn = document.getElementById('chatWidgetSend');
 
-  const GREETING = "Hi! Looking to build something or need a tech review? Ask me anything about Govind's work.";
+  const AUTO_GREETING =
+    "Hi! I'm Govind's AI assistant. Ask me anything about AI agents, services, or book a discovery call.";
+  const MANUAL_GREETING =
+    "Hi! Ask me about AI agents, LLM integration, or full-stack delivery. I can explain how Govind works with startups and enterprises.";
 
-  function togglePanel(open) {
-    const isOpen = open !== undefined ? open : !panel.classList.contains('open');
-    panel.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-label', isOpen ? 'Close chat' : 'Open chat');
-    btn.setAttribute('aria-expanded', isOpen);
-    if (isOpen) {
-      if (messagesEl.children.length === 0) {
-        addMessage('assistant', GREETING, false, true);
-      }
-      inputEl.focus();
+  function isDesktopViewport() {
+    return window.innerWidth > DESKTOP_MIN_WIDTH;
+  }
+
+  function shouldSkipScheduledAutoOpen() {
+    try {
+      return (
+        sessionStorage.getItem(CHAT_SESSION_DISMISSED) === '1' ||
+        sessionStorage.getItem(CHAT_SESSION_AUTO_DONE) === '1'
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markAutoOpenDone() {
+    try {
+      sessionStorage.setItem(CHAT_SESSION_AUTO_DONE, '1');
+    } catch (e) {}
+  }
+
+  function markDismissed() {
+    try {
+      sessionStorage.setItem(CHAT_SESSION_DISMISSED, '1');
+    } catch (e) {}
+  }
+
+  function setPanelOpen(isOpen, options = {}) {
+    const { fromAuto = false } = options;
+
+    if (!isOpen) {
+      markDismissed();
+      widget.classList.remove('chat-widget--autostart');
+      panel.classList.remove('open');
+      btn.setAttribute('aria-label', 'Open chat');
+      btn.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    if (fromAuto) {
+      widget.classList.add('chat-widget--autostart');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          panel.classList.add('open');
+          btn.setAttribute('aria-label', 'Close chat');
+          btn.setAttribute('aria-expanded', 'true');
+          if (messagesEl.children.length === 0) {
+            addMessage('assistant', AUTO_GREETING, false, true);
+          }
+          inputEl.focus();
+        });
+      });
+      return;
+    }
+
+    widget.classList.remove('chat-widget--autostart');
+    panel.classList.add('open');
+    btn.setAttribute('aria-label', 'Close chat');
+    btn.setAttribute('aria-expanded', 'true');
+    if (messagesEl.children.length === 0) {
+      addMessage('assistant', MANUAL_GREETING, false, true);
+    }
+    inputEl.focus();
+  }
+
+  function togglePanelFromButton() {
+    if (panel.classList.contains('open')) {
+      setPanelOpen(false);
+    } else {
+      setPanelOpen(true, { fromAuto: false });
     }
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && panel.classList.contains('open')) togglePanel(false);
+    if (e.key === 'Escape' && panel.classList.contains('open')) setPanelOpen(false);
   });
 
-  const CTA_URL = 'https://cal.com/govindgupta/free-architecture-review';
+  const CTA_URL = 'https://cal.com/govindgupta/discovery-call';
 
   function formatMessage(text) {
     const escaped = text
@@ -127,11 +196,11 @@
     }
   }
 
-  btn.addEventListener('click', () => togglePanel());
+  btn.addEventListener('click', () => togglePanelFromButton());
   panel.addEventListener('click', (e) => e.stopPropagation());
   document.addEventListener('click', (e) => {
     if (panel.classList.contains('open') && !panel.contains(e.target) && !btn.contains(e.target)) {
-      togglePanel(false);
+      setPanelOpen(false);
     }
   });
   sendBtn.addEventListener('click', sendMessage);
@@ -141,4 +210,41 @@
       sendMessage();
     }
   });
+
+  let autoOpenTimer = null;
+
+  function clearAutoOpenTimer() {
+    if (autoOpenTimer !== null) {
+      clearTimeout(autoOpenTimer);
+      autoOpenTimer = null;
+    }
+  }
+
+  function scheduleAutoOpen() {
+    clearAutoOpenTimer();
+    if (!isDesktopViewport() || shouldSkipScheduledAutoOpen()) return;
+
+    autoOpenTimer = window.setTimeout(() => {
+      autoOpenTimer = null;
+      if (!isDesktopViewport()) return;
+      if (shouldSkipScheduledAutoOpen()) return;
+      markAutoOpenDone();
+      if (panel.classList.contains('open')) return;
+      setPanelOpen(true, { fromAuto: true });
+    }, AUTO_OPEN_MS);
+  }
+
+  scheduleAutoOpen();
+
+  window.addEventListener(
+    'resize',
+    () => {
+      if (!isDesktopViewport()) {
+        clearAutoOpenTimer();
+      } else if (!shouldSkipScheduledAutoOpen() && autoOpenTimer === null && !panel.classList.contains('open')) {
+        scheduleAutoOpen();
+      }
+    },
+    { passive: true }
+  );
 })();
