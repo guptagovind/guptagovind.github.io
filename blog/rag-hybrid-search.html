@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e27'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23ff6b35'%3EGG%3C/text%3E%3C/svg%3E">
+    <title>Why not just give the entire document to the LLM? - Govind Gupta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/rag-hybrid-search.css">
+    <link rel="stylesheet" href="../css/chat-widget.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../icons/Govind.JPG" alt="" class="logo-avatar" width="40" height="40" decoding="async">
+                <span class="logo-text">Govind Gupta</span>
+            </a>
+            <a href="blog.html" class="back-link">&larr; All Articles</a>
+        </div>
+    </nav>
+    <header class="article-header">
+        <div class="article-header-content">
+            <span class="article-category">AI</span>
+            <h1>Why not just give the entire document to the LLM?</h1>
+            <div class="article-meta">
+                <span>&#x1F4C5; June 7, 2026</span>
+                <span>&#x23F1;&#xFE0F; 5 min read</span>
+            </div>
+        </div>
+    </header>
+    <article class="article-content">
+        <div class="article-body">
+            <p>More information doesn't always mean better answers. Imagine asking a colleague to find one configuration setting in a 2,000-page manual. Giving them the entire manual slows them down. Giving them the 3 relevant pages helps them find the answer faster and more accurately.</p>
+
+            <p>That's exactly what <strong>Retrieval-Augmented Generation (RAG)</strong> does for LLMs.</p>
+
+            <h2>What is RAG and Why Do We Need It?</h2>
+            <p>Large Language Models can only reason over the context they receive. A common mistake is sending entire documents, codebases, or knowledge repositories to the model and expecting better results.</p>
+
+            <p>This creates two problems:</p>
+            <ul>
+                <li>Higher token consumption and API costs</li>
+                <li>More noise, which can reduce answer quality</li>
+            </ul>
+
+            <p>RAG solves this by retrieving only the most relevant information and providing that context to the LLM. The goal is not to give the model <em>more</em> information. The goal is to give it the <em>right</em> information.</p>
+
+            <h2>What Did I Find While Working with RAG?</h2>
+            <p>While building a multi-agent application, I realized that retrieval quality matters more than most people think. After breaking documents into chunks and storing them with embeddings, retrieval is often done using one of two approaches:</p>
+
+            <h3>1. Keyword Search</h3>
+            <p>Traditional search looks for exact terms. Searching for <code>AUTH_TOKEN</code> will find <code>AUTH_TOKEN</code>.</p>
+            <p>This works well when users know the exact keyword, identifier, variable name, or acronym. The limitation is that it struggles when the same concept is described using different words.</p>
+
+            <h3>2. Semantic Search</h3>
+            <p>Semantic search converts both documents and queries into vectors and matches based on meaning rather than exact wording. This helps when users and documents use different terminology.</p>
+
+            <p>However, it has its own limitations:</p>
+            <ul>
+                <li>Exact identifiers, variable names, and acronyms can be diluted in vector space</li>
+                <li>Semantically similar content may rank above an exact match</li>
+                <li>Some queries simply don't need semantic understanding and would be better served by a direct text match</li>
+            </ul>
+
+            <h2>The Solution: Hybrid Search</h2>
+            <p>Instead of choosing between keyword search and semantic search, use both. Run them in parallel:</p>
+
+            <ul>
+                <li><strong>Keyword Search</strong> &rarr; captures exact matches</li>
+                <li><strong>Semantic Search</strong> &rarr; captures intent and meaning</li>
+            </ul>
+
+            <p>Then merge the results using <strong>Reciprocal Rank Fusion (RRF)</strong>.</p>
+
+            <p>If a document appears in both result sets, it gets a ranking boost. Documents found by only one method can still appear, but usually lower in the list.</p>
+
+            <div class="article-image-container">
+                <img src="rag-hybrid-search.png" alt="RAG Hybrid Search Pipeline: Keyword Search + Semantic Search merged with Reciprocal Rank Fusion" class="article-main-image">
+            </div>
+
+            <div class="results-section">
+                <h3>The Result</h3>
+                <ul>
+                    <li>Better retrieval quality</li>
+                    <li>Fewer blind spots</li>
+                    <li>More relevant context for the LLM</li>
+                    <li>Better answers without increasing context size</li>
+                </ul>
+            </div>
+
+            <h2>Takeaway</h2>
+            <p>One of the biggest lessons I learned is that <strong>RAG is fundamentally a retrieval problem, not a vector database problem.</strong></p>
+
+            <p>Embeddings are useful, but retrieval quality often depends on the combination of keyword search, semantic search, filtering, reranking, and ranking strategies.</p>
+
+            <p>If you're building RAG for agentic systems, don't think in terms of keyword vs semantic search. Use both. The improvement in retrieval quality is often noticeable from day one.</p>
+        </div>
+        <div class="article-cta">
+            <h3>Building RAG for Your Application?</h3>
+            <p>Need help designing a retrieval pipeline that actually works?</p>
+            <a href="../index.html#contact" class="cta-btn">Let's Talk</a>
+        </div>
+    </article>
+    <footer><p>&copy; 2026 Govind Gupta. All rights reserved.</p></footer>
+    <script src="../js/chat-widget.js"></script>
+</body>
+</html>

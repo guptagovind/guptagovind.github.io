@@ -34,7 +34,38 @@
     <div class="blog-container">
         <div class="blog-list">
 
-            <!-- Blog Post - AI Chat Assistant (Latest) -->
+            <!-- Blog Post - RAG Hybrid Search (Latest) -->
+            <a href="rag-hybrid-search.html" class="blog-post-link">
+            <article class="blog-post" id="rag-hybrid-search">
+                <img src="rag-hybrid-search.png" alt="RAG Hybrid Search Pipeline" class="blog-post-image">
+                <div class="blog-post-content">
+                    <span class="blog-category-tag">AI</span>
+                    <div class="blog-post-meta">
+                        <span>&#x1F4C5; June 7, 2026</span>
+                        <span>&#x23F1;&#xFE0F; 5 min read</span>
+                        <span>&#x1F464; Govind Gupta</span>
+                    </div>
+                    <h2>Why not just give the entire document to the LLM?</h2>
+                    <div class="blog-post-excerpt">
+                        <p>More information doesn't always mean better answers. RAG solves this by retrieving only the most relevant context for the LLM. But keyword search and semantic search each have blind spots. The solution? Use both with Reciprocal Rank Fusion.</p>
+                    </div>
+                    <div class="blog-post-body">
+                        <h3>The Problem</h3>
+                        <p>Sending entire documents to an LLM increases token costs and reduces answer quality. RAG retrieves only the relevant context, but choosing between keyword search and semantic search means trading off exact matches against intent-based matching.</p>
+
+                        <h3>The Solution: Hybrid Search</h3>
+                        <p>Run keyword search and semantic search in parallel, then merge results using Reciprocal Rank Fusion (RRF). Documents found by both methods get a ranking boost, giving you better retrieval quality with fewer blind spots.</p>
+
+                        <h3>Takeaway</h3>
+                        <p>RAG is fundamentally a retrieval problem, not a vector database problem. Embeddings are useful, but retrieval quality depends on combining keyword search, semantic search, and ranking strategies.</p>
+
+                        <p><strong>Key Takeaway:</strong> Don't choose between keyword and semantic search. Use both. The improvement is noticeable from day one.</p>
+                    </div>
+                </div>
+            </article>
+            </a>
+
+            <!-- Blog Post - AI Chat Assistant -->
             <a href="ai-chat-assistant.html" class="blog-post-link">
             <article class="blog-post" id="ai-chat-assistant">
                 <img src="ai-chat-assistant.png" alt="AI Chat Assistant: Architecture Overview" class="blog-post-image">
