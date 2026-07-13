@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Race Pace & Splits Calculator — AI Training Plan</title>
+<meta name="description" content="Enter your goal race time and get per-km/mile pace, even splits, and a negative-split strategy for 5K, 10K, half marathon, and marathon distances.">
+<style>
+  :root {
+    --ground: #F1F5F9;
+    --surface: #FFFFFF;
+    --surface-alt: #E8EDF4;
+    --border: #CBD5E1;
+    --text: #0F172A;
+    --text-muted: #475569;
+    --accent: #0891B2;
+    --accent-glow: rgba(8, 145, 178, 0.12);
+    --green: #059669;
+    --green-bg: rgba(5, 150, 105, 0.08);
+    --amber: #D97706;
+    --amber-bg: rgba(217, 119, 6, 0.08);
+    --red: #DC2626;
+    --input-bg: #FFFFFF;
+    --input-border: #CBD5E1;
+    --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0B1221;
+      --surface: #15203A;
+      --surface-alt: #1C2B4A;
+      --border: #243352;
+      --text: #E2E8F0;
+      --text-muted: #8B9DC3;
+      --accent: #22D3EE;
+      --accent-glow: rgba(34, 211, 238, 0.1);
+      --green: #34D399;
+      --green-bg: rgba(52, 211, 153, 0.1);
+      --amber: #FBBF24;
+      --amber-bg: rgba(251, 191, 36, 0.08);
+      --red: #F87171;
+      --input-bg: #1C2B4A;
+      --input-border: #2D3F63;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--ground);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .header { margin-bottom: 2.5rem; }
+
+  .header .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+  }
+
+  .input-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+
+  .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 520px) {
+    .input-row { grid-template-columns: 1fr; }
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .field select,
+  .field input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 1rem;
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .field select:focus,
+  .field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+
+  .time-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .time-inputs input { text-align: center; }
+
+  .time-labels {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .time-labels span {
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .btn:hover { opacity: 0.88; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .pace-hero {
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .pace-hero.visible { display: block; }
+
+  .pace-hero .race-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .pace-hero .goal-time {
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+  }
+
+  .pace-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .pace-stat .value {
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+
+  .pace-stat .unit {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+  }
+
+  .splits-section { display: none; }
+  .splits-section.visible { display: block; }
+
+  .splits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .splits-grid { grid-template-columns: 1fr; }
+  }
+
+  .split-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .split-card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .split-card-header .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .split-card-header .dot.green { background: var(--green); }
+  .split-card-header .dot.amber { background: var(--amber); }
+
+  .split-card-header h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .split-table-wrap { overflow-x: auto; }
+
+  .split-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .split-table thead th {
+    padding: 0.6rem 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .split-table thead th:last-child,
+  .split-table tbody td:last-child { text-align: right; }
+
+  .split-table tbody td {
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .split-table tbody tr:last-child td { border-bottom: none; }
+  .split-table tbody tr:last-child { background: var(--surface-alt); font-weight: 700; }
+
+  .split-table .pace-cell { color: var(--text-muted); font-size: 0.8rem; }
+  .split-table .faster { color: var(--green); }
+  .split-table .slower { color: var(--amber); }
+
+  .strategy-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--accent-glow);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .strategy-note strong { color: var(--text); }
+
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header class="header">
+    <div class="eyebrow">AI Training Plan</div>
+    <h1>Race Pace & Splits Calculator</h1>
+    <p class="subtitle">Enter your goal time. Get your per-km pace, even splits, and a negative-split race strategy.</p>
+  </header>
+
+  <div class="input-card">
+    <div class="input-row">
+      <div class="field">
+        <label for="distance">Race Distance</label>
+        <select id="distance">
+          <option value="5">5K</option>
+          <option value="10">10K</option>
+          <option value="21.0975" selected>Half Marathon</option>
+          <option value="42.195">Marathon</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Goal Finish Time</label>
+        <div class="time-inputs">
+          <input type="number" id="hours" min="0" max="23" value="1" placeholder="0" aria-label="Hours">
+          <input type="number" id="minutes" min="0" max="59" value="45" placeholder="00" aria-label="Minutes">
+          <input type="number" id="seconds" min="0" max="59" value="0" placeholder="00" aria-label="Seconds">
+        </div>
+        <div class="time-labels">
+          <span>hrs</span>
+          <span>min</span>
+          <span>sec</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn" onclick="calculate()">Calculate Splits</button>
+  </div>
+
+  <div class="pace-hero" id="paceHero">
+    <div class="race-label" id="raceLabel">Half Marathon</div>
+    <div class="goal-time" id="goalTimeDisplay">1:45:00</div>
+    <div class="pace-stats">
+      <div class="pace-stat">
+        <div class="value" id="paceKm">&mdash;</div>
+        <div class="unit">min / km</div>
+      </div>
+      <div class="pace-stat">
+        <div class="value" id="paceMi">&mdash;</div>
+        <div class="unit">min / mile</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="splits-section" id="splitsSection">
+    <div class="splits-grid">
+      <div class="split-card">
+        <div class="split-card-header">
+          <span class="dot green"></span>
+          <h3>Even Splits</h3>
+        </div>
+        <div class="split-table-wrap">
+          <table class="split-table" id="evenTable">
+            <thead><tr><th>KM</th><th>Split</th><th>Elapsed</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="split-card">
+        <div class="split-card-header">
+          <span class="dot amber"></span>
+          <h3>Negative Splits</h3>
+        </div>
+        <div class="split-table-wrap">
+          <table class="split-table" id="negativeTable">
+            <thead><tr><th>KM</th><th>Split</th><th>Elapsed</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="strategy-note">
+      <strong>Negative-split strategy:</strong> Start 3% slower than race pace for the first half,
+      then accelerate 3% faster for the second half. This conserves glycogen early,
+      reduces cardiac drift, and sets you up for a strong finish &mdash; the approach most
+      elite marathon runners use.
+    </div>
+  </div>
+
+  <footer class="footer">
+    Built for <a href="https://aitrainingplan.app" target="_blank" rel="noopener">aitrainingplan.app</a>
+  </footer>
+</div>
+
+<script>
+  function formatTime(totalSeconds) {
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = Math.round(totalSeconds % 60);
+    if (h > 0) return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function formatPace(secondsPerUnit) {
+    const m = Math.floor(secondsPerUnit / 60);
+    const s = Math.round(secondsPerUnit % 60);
+    return m + ':' + String(s).padStart(2, '0');
+  }
+
+  function distanceLabel(km) {
+    var labels = { '5': '5K', '10': '10K', '21.0975': 'Half Marathon', '42.195': 'Marathon' };
+    return labels[km] || km + ' km';
+  }
+
+  function calculate() {
+    var distKm = parseFloat(document.getElementById('distance').value);
+    var h = parseInt(document.getElementById('hours').value) || 0;
+    var m = parseInt(document.getElementById('minutes').value) || 0;
+    var s = parseInt(document.getElementById('seconds').value) || 0;
+    var totalSec = h * 3600 + m * 60 + s;
+
+    if (totalSec <= 0) return;
+
+    var pacePerKm = totalSec / distKm;
+    var pacePerMi = pacePerKm * 1.60934;
+
+    document.getElementById('raceLabel').textContent = distanceLabel(String(distKm));
+    document.getElementById('goalTimeDisplay').textContent = formatTime(totalSec);
+    document.getElementById('paceKm').textContent = formatPace(pacePerKm);
+    document.getElementById('paceMi').textContent = formatPace(pacePerMi);
+    document.getElementById('paceHero').classList.add('visible');
+
+    var fullKms = Math.floor(distKm);
+    var remainder = distKm - fullKms;
+    var halfDist = distKm / 2;
+
+    var evenBody = document.querySelector('#evenTable tbody');
+    evenBody.innerHTML = '';
+    var elapsed = 0;
+    for (var i = 1; i <= fullKms; i++) {
+      elapsed += pacePerKm;
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + i + '</td><td>' + formatPace(pacePerKm) + '</td><td>' + formatTime(elapsed) + '</td>';
+      evenBody.appendChild(tr);
+    }
+    if (remainder > 0.01) {
+      var partialSplit = pacePerKm * remainder;
+      elapsed += partialSplit;
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + distKm.toFixed(2) + '</td><td>' + formatPace(partialSplit) + '</td><td>' + formatTime(elapsed) + '</td>';
+      evenBody.appendChild(tr);
+    }
+
+    var slowPace = pacePerKm * 1.03;
+    var fastPace = pacePerKm * 0.97;
+    var negBody = document.querySelector('#negativeTable tbody');
+    negBody.innerHTML = '';
+    elapsed = 0;
+    for (var i = 1; i <= fullKms; i++) {
+      var pace = i <= Math.ceil(halfDist) ? slowPace : fastPace;
+      elapsed += pace;
+      var cls = i <= Math.ceil(halfDist) ? 'slower' : 'faster';
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + i + '</td><td class="pace-cell ' + cls + '">' + formatPace(pace) + '</td><td>' + formatTime(elapsed) + '</td>';
+      negBody.appendChild(tr);
+    }
+    if (remainder > 0.01) {
+      var partialSplit = fastPace * remainder;
+      elapsed += partialSplit;
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + distKm.toFixed(2) + '</td><td class="pace-cell faster">' + formatPace(partialSplit) + '</td><td>' + formatTime(elapsed) + '</td>';
+      negBody.appendChild(tr);
+    }
+
+    document.getElementById('splitsSection').classList.add('visible');
+  }
+
+  calculate();
+</script>
+</body>
+</html>
